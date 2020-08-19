@@ -185,11 +185,17 @@ def _make_iterencode(markers, _default, _encoder, _indent, _floatstr,
     def add_users_music():
         if env['platform'] == 'android':
                 menuMusic = "menuMusic.ogg"
-                announceTen = "announceTen"
+                #announceTen = "announceTen"
+                whenJohnnyComesMarchingHomeMusic = "whenJohnnyComesMarchingHomeMusic.ogg"
                 if menuMusic in os.listdir(env['userScriptsDirectory']):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
+
+                if whenJohnnyComesMarchingHomeMusic in os.listdir(env['userScriptsDirectory']):
+                    import shutil # copy our file to bombsquad audios data
+                    try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
+                    except Exception as E: print(E) 
 
 
 
