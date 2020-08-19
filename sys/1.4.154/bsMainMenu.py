@@ -19,16 +19,10 @@ class MainMenuActivity(bs.Activity):
         bs.Activity.__init__(self,settings)
         def menu_music():
             if env['platform'] == 'android':
-                file = "menuMusic.ogg"
-                file_2 = "whenJohnnyComesMarchingHomeMusic.mp3"
+                file = "whenJohnnyComesMarchingHomeMusic.mp3"
                 if file in os.listdir(env['userScriptsDirectory']):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-                    except Exception as E: print(E)
-
-                if file in os.listdir(env['userScriptsDirectory']):
-                    import shutil # copy our file to bombsquad audios data
-                    try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_2), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
         menu_music()
 
