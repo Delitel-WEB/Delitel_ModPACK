@@ -20,17 +20,10 @@ class MainMenuActivity(bs.Activity):
         def menu_music():
             if env['platform'] == 'android':
                 file = "menuMusic.ogg"
-                sportsMusic = "sportsMusic.ogg"
                 if file in os.listdir(env['userScriptsDirectory']):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
-
-                if sportsMusic in os.listdir(env['userScriptsDirectory']):
-                    import shutil # copy our file to bombsquad audios data
-                    try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-                    except Exception as E: print(E) 
-
         menu_music()
 
     def fireworks(self):

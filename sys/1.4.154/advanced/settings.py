@@ -184,7 +184,6 @@ def _make_iterencode(markers, _default, _encoder, _indent, _floatstr,
 
 
 
-
 json.encoder._make_iterencode = _make_iterencode
 _gData={"admins":[], "vips":[], "prefixes":{}, "banned": [], \
     "skins": {}, "lobby_connect_menu": False, "show_game_name": True, \
@@ -196,6 +195,22 @@ _gData={"admins":[], "vips":[], "prefixes":{}, "banned": [], \
         
 env = bs.getEnvironment()
 gSettingsPath=os.path.join(env["userScriptsDirectory"], "settings.json")
+
+def add_users_music():
+    global env
+        if env['platform'] == 'android':
+                menuMusic = "menuMusic.ogg"
+                #announceTen = "announceTen"
+                whenJohnnyComesMarchingHomeMusic = "whenJohnnyComesMarchingHomeMusic.ogg"
+                if menuMusic in os.listdir(env['userScriptsDirectory']):
+                    import shutil # copy our file to bombsquad audios data
+                    try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
+                    except Exception as E: print(E)
+
+                if whenJohnnyComesMarchingHomeMusic in os.listdir(env['userScriptsDirectory']):
+                    import shutil # copy our file to bombsquad audios data
+                    try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
+                    except Exception as E: print(E) 
 
 class Settings(object):
     def __init__(self, path=None):
