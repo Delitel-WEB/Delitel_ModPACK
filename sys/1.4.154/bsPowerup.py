@@ -244,10 +244,10 @@ class Powerup(bs.Actor):
 
         if isinstance(msg, PowerupAcceptMessage):
             factory = self.getFactory()
-            if self.powerupType == 'health':
-                bs.playSound(factory.healthPowerupSound, 3,
-                             position=self.node.position)
-            bs.playSound(factory.powerupSound, 3, position=self.node.position)
+            #if self.powerupType == 'health':
+                #bs.playSound(factory.healthPowerupSound, 3,
+                            # position=self.node.position)
+            #bs.playSound(factory.powerupSound, 3, position=self.node.position)
             self._powersGiven = True
             self.handleMessage(bs.DieMessage())
 
