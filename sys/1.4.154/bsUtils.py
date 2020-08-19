@@ -2496,7 +2496,7 @@ def _playMusic(musicType, continuous=False,
                     filename = 'scaryMusic'
                     volume = 4.0
                 elif musicType == 'Marching':
-                    filename = 'whenJohnnyComesMarchingHomeMusic'
+                    filename = 'final'
                     volume = 4.0
                 else:
                     print "Unknown music: '"+musicType+"'"
