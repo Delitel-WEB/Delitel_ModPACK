@@ -196,16 +196,7 @@ _gData={"admins":[], "vips":[], "prefixes":{}, "banned": [], \
 env = bs.getEnvironment()
 gSettingsPath=os.path.join(env["userScriptsDirectory"], "settings.json")
 
-def add_users_music():
-    env = bs.getEnvironment()
-    if env['platform'] == 'android':
-            #announceTen = "announceTen"
-            whenJohnnyComesMarchingHomeMusic = "victoryMusic.ogg"
-            if whenJohnnyComesMarchingHomeMusic in os.listdir(env['userScriptsDirectory']):
-                import shutil # copy our file to bombsquad audios data
-                try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-                except Exception as E: print(E) 
-add_users_music()
+
 
 
 class Settings(object):
