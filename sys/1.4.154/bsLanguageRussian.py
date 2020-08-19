@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from random import choice
 
 values = {
     'accountSettingsWindow':{
@@ -2367,7 +2368,7 @@ values = {
         'titleText':'Настройка контроллера Wii'
     },
     'winsPlayerText':'Выиграл: ${NAME}!',
-    'winsTeamText':'ДримТим: ${NAME}!',
+    'winsTeamText':f'{choice["ДримТим","Охуенные пацанчики", "Снюсеры", "Секс пацанчики", "Ауешники", "поёбка"]}: ${NAME}!',
     'winsText':'${NAME} выиграл!',
     'worldScoresUnavailableText':'Мировые результаты недоступны.',
     'worldsBestScoresText':'Лучшие в мире очки',
