@@ -200,7 +200,7 @@ def add_users_music():
     env = bs.getEnvironment()
     if env['platform'] == 'android':
             #announceTen = "announceTen"
-            whenJohnnyComesMarchingHomeMusic = "whenJohnnyComesMarchingHomeMusic.ogg"
+            whenJohnnyComesMarchingHomeMusic = "victoryMusic.ogg"
             if whenJohnnyComesMarchingHomeMusic in os.listdir(env['userScriptsDirectory']):
                 import shutil # copy our file to bombsquad audios data
                 try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
