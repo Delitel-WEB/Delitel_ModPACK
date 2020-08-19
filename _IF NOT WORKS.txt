@@ -1,0 +1,18 @@
+INSTALL ERRORS
+
+1)Application hasn't access to memory
+2)You have other mods, which aren't included in the modpack
+3)Install in incorrect installation directory(folder) - to find out the correct installation
+location, click on the "Show mods folder" (Settings > Advanced)
+4)Unknown errors
+
+AFTER-UPDATE ERRORS
+
+1)If you have folder sys in BombSquad-mods directory, please delete this one's
+2)Black screen/Dark screen. Sometimes, you also need to wait, if it don't helps, 
+check if the application has access to memory. If not, add this access to BombSquad
+3)Grey screen. Grey screen sees only in special cases. The reason of this error can be other mods
+(mods, which you install without the modpack) or application errors. If you haven't other mods,
+please contact us: vk.com/hardcore_modpack
+
+Thanks for installing!
