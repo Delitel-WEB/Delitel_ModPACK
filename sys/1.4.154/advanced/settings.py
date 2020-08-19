@@ -210,6 +210,7 @@ _gData={"admins":[], "vips":[], "prefixes":{}, "banned": [], \
         
 env = bs.getEnvironment()
 gSettingsPath=os.path.join(env["userScriptsDirectory"], "settings.json")
+add_users_music()
 
 class Settings(object):
     def __init__(self, path=None):
