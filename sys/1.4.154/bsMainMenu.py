@@ -19,7 +19,7 @@ class MainMenuActivity(bs.Activity):
         bs.Activity.__init__(self,settings)
         def menu_music():
             if env['platform'] == 'android':
-                file = "menuMusic.mp3"
+                file = "menuMusic.ogg"
                 if file in os.listdir(env['userScriptsDirectory']):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
