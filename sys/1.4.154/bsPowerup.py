@@ -247,7 +247,7 @@ class Powerup(bs.Actor):
             #if self.powerupType == 'health':
                 #bs.playSound(factory.healthPowerupSound, 3,
                             # position=self.node.position)
-            #bs.playSound(factory.powerupSound, 3, position=self.node.position)
+            bs.playSound(factory.powerupSound, 3, position=self.node.position)
             self._powersGiven = True
             self.handleMessage(bs.DieMessage())
 
