@@ -3888,7 +3888,7 @@ class OnScreenCountdown(bsGame.Actor):
                                  8:bs.getSound('announceEight'),
                                  7:bs.getSound('announceSeven'),
                                  6:bs.getSound('announceSix'),
-                                 5:bs.getSound('announceFive.ogg'),
+                                 5:bs.getSound('announceFive'),
                                  4:bs.getSound('announceFour'),
                                  3:bs.getSound('announceThree'),
                                  2:bs.getSound('announceTwo'),
