@@ -2496,7 +2496,7 @@ def _playMusic(musicType, continuous=False,
                     filename = 'scaryMusic'
                     volume = 4.0
                 elif musicType == 'Marching':
-                    filename = 'final'
+                    filename = 'whenJohnnyComesMarchingHomeMusic'
                     volume = 4.0
                 else:
                     print "Unknown music: '"+musicType+"'"
@@ -3888,7 +3888,7 @@ class OnScreenCountdown(bsGame.Actor):
                                  8:bs.getSound('announceEight'),
                                  7:bs.getSound('announceSeven'),
                                  6:bs.getSound('announceSix'),
-                                 5:bs.getSound('announceFive'),
+                                 5:bs.getSound('announceFive.ogg'),
                                  4:bs.getSound('announceFour'),
                                  3:bs.getSound('announceThree'),
                                  2:bs.getSound('announceTwo'),
