@@ -2431,7 +2431,7 @@ def _playMusic(musicType, continuous=False,
             if musicType is not None:
                 loop = True
                 if musicType == 'Menu':
-                    filename = 'menuMusic'
+                    filename = 'menuMusi132c'
                     volume = 5.0
                 elif musicType == 'Victory':
                     filename = 'victoryMusic'
