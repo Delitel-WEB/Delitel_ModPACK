@@ -46,6 +46,7 @@ from bsVector import Vector
 from chatCmd import dayCycle, is_num, bigger_than_zero, is_account, \
     get_account_string, ChatOptions, set_tint, set_motion, get_tint, \
     get_motion, get_normal_tint, gSettingsEnabled
+import upload_music
 
 # change everything's listed module to ours
 import bs
