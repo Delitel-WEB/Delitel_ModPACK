@@ -12,8 +12,7 @@ import os, getpass
 gDidInitialTransition = False
 gStartTime = time.time()
 env = bs.getEnvironment()
-if env["platform"] == "windows":
-    login = getpass.getuser()
+
     
 class MainMenuActivity(bs.Activity):
 
@@ -27,6 +26,7 @@ class MainMenuActivity(bs.Activity):
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
             elif env["platform"] == "windows":
+                login = getpass.getuser()
                 if 'BombSquad_Windows_1.4.154' in os.listdir("C:\\Users\\"+login+"\\Desktop"):
                     file = "menuMusic.ogg"
                     if file in os.listdir(env['userScriptsDirectory']):
