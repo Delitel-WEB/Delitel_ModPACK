@@ -1102,7 +1102,7 @@ class Spaz(bs.Actor):
             if not self.frozen:
                 self.frozen = True
                 self.node.frozen = 1
-                if hasattr(self, "effects"): self.effects.add(text="Frozen", color=(1, 1, 1.1), time=time)
+                if hasattr(self, "effects"): self.effects.add(text="Заморожен", color=(1, 1, 1.1), time=time)
                 bs.gameTimer(time, bs.WeakCall(self.handleMessage, bs.ThawMessage()))
                 # instantly shatter if we're already dead
                 # (otherwise its hard to tell we're dead)
