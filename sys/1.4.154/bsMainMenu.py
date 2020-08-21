@@ -7,7 +7,7 @@ import time
 import weakref
 import bsInternal
 import json
-import os, getpass
+import os
 
 gDidInitialTransition = False
 gStartTime = time.time()
@@ -25,17 +25,6 @@ class MainMenuActivity(bs.Activity):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
-            elif env["platform"] == "windows":
-                login = getpass.getuser()
-                if 'BombSquad_Windows_1.4.154' in os.listdir("C:\\Users\\"+login+"\\Desktop"):
-                    file = "menuMusic.ogg"
-                    if file in os.listdir(env['userScriptsDirectory']):
-                        import shutil # copy our file to bombsquad audios data
-                        try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), 'C:\\Users\\'+login+'\\Desktop\\BombSquad_Windows_1.4.154\\data\\audio')
-                        except Exception as E: print(E)
-                else:
-                    bs.screenMessage("Локальная не папка найдена!", color=(1,0,0))
-                    bs.screenMessage("Аудио файлы не импортированы!", color=(1,0,0))
         menu_music()
 
     def fireworks(self):

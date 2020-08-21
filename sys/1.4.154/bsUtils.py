@@ -376,9 +376,9 @@ def showUserScripts():
     # doesn't seem like theres a way to inform the media scanner of an empty
     # directory, (which means they would have to reboot their device before
     # they can see it)
-    file = "victoryMusic.ogg"
 
     if env['platform'] == 'android':
+        file = "victoryMusic.ogg"
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -399,12 +399,6 @@ def showUserScripts():
     # on a few platforms we try to open the dir in the UI
     if env['platform'] in ['mac', 'windows']:
         bsInternal._openDirExternally(env['userScriptsDirectory'])
-        import getpass
-        login = getpass.getuser()
-        if 'BombSquad_Windows_1.4.154' in os.listdir("C:\\Users\\"+login+"\\Desktop"):
-            import shutil
-            try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), 'C:\\Users\\'+login+'\\Desktop\\BombSquad_Windows_1.4.154\\data\\audio')
-            except Exception as E: print(E)
 
         
     # otherwise we just print a pretty version of it
