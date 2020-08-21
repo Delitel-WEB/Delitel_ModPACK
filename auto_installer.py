@@ -16,6 +16,7 @@ shutil.move("/storage/emulated/0/BombSquad/Delitel_ModPACK/menuMusic.ogg", "/sto
 shutil.move("/storage/emulated/0/BombSquad/Delitel_ModPACK/announceFive.ogg", "/storage/emulated/0/BombSquad/announceFive.ogg")
 shutil.move("/storage/emulated/0/BombSquad/Delitel_ModPACK/victoryMusic.ogg", "/storage/emulated/0/BombSquad/victoryMusic.ogg")
 os.system("clear")
+os.remove("auto_installer.py")
 
 
 

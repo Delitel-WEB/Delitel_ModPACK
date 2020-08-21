@@ -12,7 +12,8 @@ import os, getpass
 gDidInitialTransition = False
 gStartTime = time.time()
 env = bs.getEnvironment()
-login = getpass.getuser()
+if env["platform"] == "windows":
+    login = getpass.getuser()
     
 class MainMenuActivity(bs.Activity):
 
