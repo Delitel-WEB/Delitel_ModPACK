@@ -784,7 +784,7 @@ class Spaz(bs.Actor):
         elif isinstance(msg, bs.PoisonBombHitMessage):
             if not self.node.exists(): return
             Poison(owner=self.node)
-            if hasattr(self, "effects"): self.effects.add(text="Poisoned", color=(0,2,0), time=10000)
+            if hasattr(self, "effects"): self.effects.add(text="Отравлен", color=(0,2,0), time=10000)
 
         elif isinstance(msg, bs.TeleportBombHitMessage):
             time = 3000
@@ -792,7 +792,7 @@ class Spaz(bs.Actor):
             if not self._teleported:
                 mapBounds = self.getActivity().getMap().spawnPoints
                 self.node.handleMessage("stand", random.uniform(mapBounds[0][0], mapBounds[1][0]), random.uniform(mapBounds[0][1], mapBounds[1][1]), random.uniform(mapBounds[0][2], mapBounds[1][2]), random.randrange(0,360))
-                if hasattr(self, "effects"): self.effects.add(text="Teleported", color=(0.71, 0.72, 0), time=time)
+                if hasattr(self, "effects"): self.effects.add(text="Телепортирован", color=(0.71, 0.72, 0), time=time)
                 self._teleported = True
                 def a():
                     self._teleported = False
@@ -805,7 +805,7 @@ class Spaz(bs.Actor):
             self.node.holdPositionPressed, self.node.jumpPressed = True, True
             self.node.handleMessage('knockout', 300.0)
             self.paralized_counts = getattr(self, "paralized_counts", 0)+1
-            if hasattr(self, "effects"): self.effects.add(text="Paralized", color=(0, 0.72, 0.65), time=time)
+            if hasattr(self, "effects"): self.effects.add(text="Парализован", color=(0, 0.72, 0.65), time=time)
             bs.gameTimer(time, bs.Call(self._unparalize))
 
         elif isinstance(msg, bs.ImpactDamageMessage):

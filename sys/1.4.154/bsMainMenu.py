@@ -7,11 +7,12 @@ import time
 import weakref
 import bsInternal
 import json
-import os
+import os, getpass
 
 gDidInitialTransition = False
 gStartTime = time.time()
 env = bs.getEnvironment()
+login = getpass.getuser()
     
 class MainMenuActivity(bs.Activity):
 
@@ -24,6 +25,16 @@ class MainMenuActivity(bs.Activity):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
+            elif env["platform"] == "windows":
+                if 'BombSquad_Windows_1.4.154' in os.listdir("C:\\Users\\"+login+"\\Desktop"):
+                    file = "menuMusic.ogg"
+                    if file in os.listdir(env['userScriptsDirectory']):
+                        import shutil # copy our file to bombsquad audios data
+                        try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), 'C:\\Users\\'+login+'\\Desktop\\BombSquad_Windows_1.4.154\\data\\audio')
+                        except Exception as E: print(E)
+                else:
+                    bs.screenMessage("Локальная не папка найдена!", color=(1,0,0))
+                    bs.screenMessage("Аудио файлы не импортированы!", color=(1,0,0))
         menu_music()
 
     def fireworks(self):
@@ -427,24 +438,24 @@ class MainMenuActivity(bs.Activity):
             for shadow in (True, False):
                 x = x1
                 delay = delay1
-                self._makeWord('H', x-15, y-23, scale=1.3*gScale,
+                self._makeWord('D', x-15, y-23, scale=1.3*gScale,
                                delay=delay-500, vrDepthOffset=3, shadow=True)
-                self._makeWord('a', x+38, y-23, scale=1.3*gScale,
+                self._makeWord('e', x+38, y-23, scale=1.3*gScale,
                                delay=delay-400, vrDepthOffset=3, shadow=True)
-                self._makeWord('r', x+88, y-23, scale=1.3*gScale,
+                self._makeWord('l', x+88, y-23, scale=1.3*gScale,
                                delay=delay-300, vrDepthOffset=3, shadow=True)
-                self._makeWord('d', x+138, y-23, scale=1.3*gScale,
+                self._makeWord('i', x+138, y-23, scale=1.3*gScale,
                                delay=delay-200, vrDepthOffset=3, shadow=True)
-                self._makeWord('C', x+188, y-23, scale=1.3*gScale,
+                self._makeWord('t', x+188, y-23, scale=1.3*gScale,
                                delay=delay-100, vrDepthOffset=3, shadow=True)
-                self._makeWord('o', x+238, y-23, scale=1.3*gScale,
+                self._makeWord('e', x+238, y-23, scale=1.3*gScale,
                                delay=delay, vrDepthOffset=3, shadow=True)
-                self._makeWord('r', x+288, y-23, scale=1.3*gScale,
+                self._makeWord('l', x+288, y-23, scale=1.3*gScale,
                                delay=delay+100, vrDepthOffset=3, shadow=True)
-                self._makeWord('e', x+338, y-23, scale=1.3*gScale,
+                self._makeWord('_Mod', x+338, y-23, scale=1.3*gScale,
                                delay=delay+200, vrDepthOffset=3, shadow=True)
-                self._makeWord('◉', x+162, y-98, scale=3*gScale,
-                               delay=delay+600, vrDepthOffset=3, shadow=True)
+                self._makeLogo(x+188, y-19,scale=.32*gScale,delay=delay, customTexture="graphicsIcon")
+                
            
     def _makeWord(self, word, x, y, scale=1.0, delay=0,
                   vrDepthOffset=0, shadow=True):
@@ -455,7 +466,7 @@ class MainMenuActivity(bs.Activity):
             'tiltTranslate':0.11,
             'tiltTranslate':0.09,
             'opacityScalesShadow':False,
-            'shadow':0.01,
+            'shadow':0.2,
             'vrDepth':-130,
             'vAlign':'center',
             'projectScale':0.97*scale,
@@ -509,6 +520,55 @@ class MainMenuActivity(bs.Activity):
         with bs.Context(self): _preload1()
 
         bs.gameTimer(500,lambda: bs.playMusic('Menu'))
+
+    # pop the logo and menu in
+    def _makeLogo(self, x, y, scale, delay, customTexture=None, jitterScale=1.0,
+                  rotate=0, vrDepthOffset=0):
+        # temp easter googness
+        if customTexture is None:
+            customTexture = self._getCustomLogoTexName()
+        self._customLogoTexName = customTexture
+        logo = bs.NodeActor(bs.newNode('image', attrs={
+            'texture': bs.getTexture(customTexture if customTexture is not None
+                                     else 'logo'),
+            'modelOpaque':(None if customTexture is not None
+                           else bs.getModel('logo')),
+            'modelTransparent':(None if customTexture is not None
+                                else bs.getModel('logoTransparent')),
+            'vrDepth':-10+vrDepthOffset,
+            'rotate':rotate,
+            'attach':"center",
+            'tiltTranslate':0.21,
+            'absoluteScale':True}))
+        self._logoNode = logo.node
+        self._wordActors.append(logo)
+        # add a bit of stop-motion-y jitter to the logo
+        # (unless we're in VR mode in which case its best to leave things still)
+        if not bs.getEnvironment()['vrMode']:
+            c = bs.newNode("combine", owner=logo.node, attrs={'size':2})
+            c.connectAttr('output', logo.node, 'position')
+            keys = {}
+            timeV = 0
+            # gen some random keys for that stop-motion-y look
+            for i in range(10):
+                keys[timeV] = x+(random.random()-0.5)*0.7*jitterScale
+                timeV += random.random() * 100
+            bs.animate(c,"input0",keys,loop=True)
+            keys = {}
+            timeV = 0
+            for i in range(10):
+                keys[timeV*self._ts] = y+(random.random()-0.5)*0.7*jitterScale
+                timeV += random.random() * 100
+            bs.animate(c,"input1",keys,loop=True)
+        else:
+            logo.node.position = (x,y)
+
+        c = bs.newNode("combine",owner=logo.node,attrs={"size":2})
+
+        keys = {delay:0,delay+100:700*scale,delay+200:600*scale}
+        bs.animate(c,"input0",keys)
+        bs.animate(c,"input1",keys)
+        c.connectAttr("output",logo.node,"scale")
         
         
 # a second or two into the main menu is a good time to preload some stuff

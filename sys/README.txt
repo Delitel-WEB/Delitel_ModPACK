@@ -1,7 +1,7 @@
-HOW TO INSTALL THIS MODPACK:
+КАК УСТАНОВИТЬ МОДПАК:
 
-1)You need to extract ALL files from archive to BombSquad User Scripts Folder
-(to find out these directory, click on "Show Mods Folder" (Settings > Advanced))
-2)Then you need to give access to memory to BombSquad-app
-3)Start BombSquad
-4)Install complete
+1)Тебе нужно извлечь ВСЕ файлы из скачанного архива(файла) в папку модов
+(чтобы узнать где находится данная папка, нажми на "Показать папку модов" (Настройки > Дополнительно))
+2)Тебе нужно дать приложению(BombSquad) доступ к памяти
+3)Запусти BombSquad
+4)Установка завершена

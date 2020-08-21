@@ -1705,7 +1705,7 @@ values = {
     'testBuildValidatedText':'Тестовая сборка проверена. Наслаждайтесь!',
     'thankYouText':'Спасибо за вашу поддержку! Веселой игры!!',
     'threeKillText':'Тройное убийство',
-    'timeBonusText':'Респект+',
+    'timeBonusText':'Бонус времени',
     'timeElapsedText':'Прошло времени',
     'timeExpiredText':'Время вышло',
     'timeSuffixDaysText':'${COUNT}д',
