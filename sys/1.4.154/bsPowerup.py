@@ -39,7 +39,7 @@ class PowerupFactory(object):
         self.texKillLaKillBomb = bs.getTexture("black")
         self.texPoisonBomb = bs.getTexture("black")
         self.texSpeedPunch = bs.getTexture("achievementSuperPunch") 
-        self.texPandoraBox = bs.getTexture("black")
+        self.texPandoraBox = bs.getTexture("chestIcon")
         self.texMultiBombs = bs.getTexture("logo") 
         self.texFireworkBomb = bs.getTexture("eggTex1") 
         self.texIceBombs = bs.getTexture("powerupIceBombs")
@@ -55,7 +55,7 @@ class PowerupFactory(object):
         self.texDirt = bs.getTexture('nub')
 
         self.healthPowerupSound = bs.getSound("healthPowerup")
-        self.powerupSound = bs.getSound("ooh")
+        self.powerupSound = bs.getSound("powerup01")
         self.powerdownSound = bs.getSound("pixie2")
         self.dropSound = bs.getSound("boxDrop")
 
@@ -247,7 +247,7 @@ class Powerup(bs.Actor):
             if self.powerupType == 'health':
                 bs.playSound(factory.healthPowerupSound, 3,
                             position=self.node.position)
-            #bs.playSound(factory.powerupSound, 3, position=self.node.position)
+            bs.playSound(factory.powerupSound, 3, position=self.node.position)
             self._powersGiven = True
             self.handleMessage(bs.DieMessage())
 
