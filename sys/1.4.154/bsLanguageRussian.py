@@ -2124,9 +2124,9 @@ values = {
         },
         'teamNames':{
             'Bad Guys':'Плохие парни',
-            'Blue':'Синие',
+            'Blue':'Левые',
             'Good guys':'Хорошие парни',
-            'Red':'Красные'
+            'Red':'Правые'
         },
         'tips':{
             ('A perfectly timed running-jumping-spin-punch can kill in a single hit\n'
@@ -2367,7 +2367,7 @@ values = {
         'titleText':'Настройка контроллера Wii'
     },
     'winsPlayerText':'Выиграл: ${NAME}!',
-    'winsTeamText':'ДримТим: ${NAME}!',
+    'winsTeamText':'Снюсеры: ${NAME}!',
     'winsText':'${NAME} выиграл!',
     'worldScoresUnavailableText':'Мировые результаты недоступны.',
     'worldsBestScoresText':'Лучшие в мире очки',

@@ -506,7 +506,7 @@ class ZeroGameUpdated(bs.TeamGameActivity):
 
     @classmethod
     def getName(cls):
-        return 'Zero Chance\'s'
+        return 'Ноль шансов'
 
     @classmethod
     def getScoreInfo(cls):
@@ -514,7 +514,7 @@ class ZeroGameUpdated(bs.TeamGameActivity):
 
     @classmethod
     def getDescription(cls, sessionType):
-        return 'Stay alive.'
+        return 'Останьтесь в живых'
 
     @classmethod
     def getSupportedMaps(cls, sessionType):

@@ -10,8 +10,8 @@ import bsInternal
 gDefaultTeamColors = ((1, 0, 0), (0, 0, 1))
 gDefaultTeamNames = ("Red", "Blue")
 
-gTeamSeriesLength = 7
-gFFASeriesLength = 24
+gTeamSeriesLength = 9
+gFFASeriesLength = 36
 
 
 class TeamGameResults(object):

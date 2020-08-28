@@ -379,6 +379,7 @@ def showUserScripts():
 
     if env['platform'] == 'android':
         file = "victoryMusic.ogg"
+        file_2 = "tickingCrazy.ogg"
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -394,6 +395,12 @@ def showUserScripts():
         if file in os.listdir(env['userScriptsDirectory']):
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
             except Exception as E: print(E)
+
+        if file_2 in os.listdir(env["userScriptsDirectory"]):
+            try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_2), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
+            except Exception as E: print(E)
+
+
 
         
     # on a few platforms we try to open the dir in the UI
