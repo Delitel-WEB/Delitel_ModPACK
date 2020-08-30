@@ -380,6 +380,11 @@ def showUserScripts():
     if env['platform'] == 'android':
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
+
+        textures = [
+        "puckColor.ktx"
+        ]
+
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -400,9 +405,8 @@ def showUserScripts():
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_2), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
             except Exception as E: print(E)
 
-        files = os.listdir("/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures")
-        for i in files:
-            try: shutil.copy(os.path.join('/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures', i), env['userScriptsDirectory']+"/ktx")
+        for i in textures:
+            try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
             except Exception as E: print(E)
 
 
