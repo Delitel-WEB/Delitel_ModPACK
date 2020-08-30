@@ -10279,16 +10279,16 @@ class ModPackSettingsWindow(Window):
             simpleCullingV=20.0, highlight=False,
             size=(self._scrollWidth, self._scrollHeight))
         bs.containerWidget(edit=self._scrollWidget, selectionLoopToParent=True)
-        settings = ["lobby_connect_menu", "auto-update", "powerup_lighting", "chat_commands_enabled", \
-            "timer_the_disappearance_of_the_effect", "admins_prefix", "show_game_name", \
-            "timer_the_disappearance_of_the_powerup", "disable_powerups", "timer_before_the_bomb_explode", "in_menu_author_name", "party_search_log"]
-        settingsTranslated = {"Russian": {"lobby_connect_menu": "Расширенное меню подключения к лобби", "auto-update": "Автообновление", \
-            "powerup_lighting": "Подсветка усилителей", "chat_commands_enabled": "Команды чата включены", \
-            "timer_the_disappearance_of_the_effect": "Таймер до исчезновения эффекта", "admins_prefix": "Префикс админа", \
+        settings = ["secret_scene", "lobby_connect_menu", "powerup_lighting", \
+            "timer_the_disappearance_of_the_effect", \
+            "timer_the_disappearance_of_the_powerup", "disable_powerups", "timer_before_the_bomb_explode"]
+        settingsTranslated = {"Russian": {"secret_scene": "Секретная сцена", "lobby_connect_menu": "Расширенное меню подключения к лобби", \
+            "powerup_lighting": "Подсветка усилителей", \
+            "timer_the_disappearance_of_the_effect": "Таймер до исчезновения эффекта", \
             "show_game_name": "Показывать название игры", "timer_the_disappearance_of_the_powerup": "Таймер до исчезновения усилителя", \
             "disable_powerups": "Отключить усилители", "timer_before_the_bomb_explode": "Таймер до взрыва бомбы", "in_menu_author_name":"Имя автора в меню", \
             "party_search_log": "Лог поиска серверов"},
-            "English": {"lobby_connect_menu": "Advanced Lobby Connect Menu", "auto-update": "Auto-Update", "powerup_lighting": "Powerup Lighting", \
+            "English": {"lobby_connect_menu": "Advanced Lobby Connect Menu", "powerup_lighting": "Powerup Lighting", \
             "chat_commands_enabled": "Chat Commands Enabled", "timer_the_disappearance_of_the_effect": "Timer Disappearance Of The Effect", \
             "admins_prefix": "Admin\'s Prefix", "show_game_name": "Show Game Name", "timer_the_disappearance_of_the_powerup": "Timer Disappearance Of The Powerup", \
             "disable_powerups": "Disable Powerups", "timer_before_the_bomb_explode": "Timer Before The Bomb Explode", "in_menu_author_name":"Name Of The Author Of The Modpack In Menu", \

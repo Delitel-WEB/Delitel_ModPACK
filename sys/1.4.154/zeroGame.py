@@ -103,7 +103,7 @@ class AlertMessage(object):
             if hasattr(self.owner.getDelegate(), "_text") and self.owner.getDelegate()._text.exists(): self.owner.getDelegate()._text.delete()
             m = bs.newNode('math', owner=self.owner, attrs={'input1': (0, 2.325, 0), 'operation': 'add'})
             self.owner.connectAttr('position', m, 'input2')
-            self._text = bs.newNode('text', owner=self.owner, attrs={'text': 'Alert!',
+            self._text = bs.newNode('text', owner=self.owner, attrs={'text': 'Внимание!',
                 'inWorld': True,
                 'position': (0, 0, 0),
                 'color': (3, 0, 0),
@@ -174,7 +174,7 @@ def handleMessageModifed(self, msg):
     if isinstance(msg, PoisonBombHitMessage):
         if not self.node.exists(): return
         Poison(owner=self.node)
-        if hasattr(self, "effects"): self.effects.add(text="Poisoned", color=(0, 2, 0), time=10000)
+        if hasattr(self, "effects"): self.effects.add(text="Отравлен", color=(0, 2, 0), time=10000)
     elif isinstance(msg, bs.HitMessage) and hasattr(msg, "hitSubType") and msg.hitSubType == "poisonEffect":
         damageScale = 0.22
         damage = msg.magnitude * 1.0 * damageScale

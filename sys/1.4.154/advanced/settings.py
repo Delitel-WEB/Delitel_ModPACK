@@ -187,10 +187,10 @@ def _make_iterencode(markers, _default, _encoder, _indent, _floatstr,
 json.encoder._make_iterencode = _make_iterencode
 _gData={"admins":[], "vips":[], "prefixes":{}, "banned": [], \
     "skins": {}, "lobby_connect_menu": False, "show_game_name": True, \
-    "admins_prefix": True, "timer_the_disappearance_of_the_effect": False, \
+    "secret_scene": False, "timer_the_disappearance_of_the_effect": False, \
     "powerup_lighting": False, "timer_the_disappearance_of_the_powerup": False, \
-    "timer_before_the_bomb_explode": False, "chat_commands_enabled": True, \
-    "disable_powerups": False, "auto-update": False, "internet_tab_search_text":"", \
+    "timer_before_the_bomb_explode": False, "chat_commands_enabled": False, \
+    "disable_powerups": False, "internet_tab_search_text":"", \
     "in_menu_author_name": True, "party_search_log": False, "exclude_powerups": []}
         
 env = bs.getEnvironment()
