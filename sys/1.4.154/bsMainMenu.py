@@ -25,7 +25,7 @@ class MainMenuActivity(bs.Activity):
                     import shutil # copy our file to bombsquad audios data
                     try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
                     except Exception as E: print(E)
-            bs.screenMessage(os.listdir("/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures"))
+            print(os.listdir("/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures"))
         menu_music()
 
     def fireworks(self):
