@@ -10279,10 +10279,10 @@ class ModPackSettingsWindow(Window):
             simpleCullingV=20.0, highlight=False,
             size=(self._scrollWidth, self._scrollHeight))
         bs.containerWidget(edit=self._scrollWidget, selectionLoopToParent=True)
-        settings = ["secret_scene", "lobby_connect_menu", "powerup_lighting", \
+        settings = ["lobby_connect_menu", "powerup_lighting", \
             "timer_the_disappearance_of_the_effect", \
             "timer_the_disappearance_of_the_powerup", "disable_powerups", "timer_before_the_bomb_explode"]
-        settingsTranslated = {"Russian": {"secret_scene": "Секретная сцена", "lobby_connect_menu": "Расширенное меню подключения к лобби", \
+        settingsTranslated = {"Russian": {"lobby_connect_menu": "Расширенное меню подключения к лобби", \
             "powerup_lighting": "Подсветка усилителей", \
             "timer_the_disappearance_of_the_effect": "Таймер до исчезновения эффекта", \
             "show_game_name": "Показывать название игры", "timer_the_disappearance_of_the_powerup": "Таймер до исчезновения усилителя", \

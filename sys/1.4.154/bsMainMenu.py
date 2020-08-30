@@ -49,9 +49,6 @@ class MainMenuActivity(bs.Activity):
     def onTransitionIn(self):
         bs.Activity.onTransitionIn(self)
         global gDidInitialTransition
-
-        scene = bs.get_setting("secret_scene")
-
         random.seed(123)
         try: import install
         except ImportError: pass
@@ -173,293 +170,57 @@ class MainMenuActivity(bs.Activity):
         bsGlobals = bs.getSharedObject('globals')
         bsGlobals.cameraMode = 'rotate'
         bsGlobals.tint = (1.1,1.1,1.0)
-
-
-        if not scene:
-            self.bottom = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':bottomModel,
-                'lighting':False,
-                'reflection':'soft',
-                'reflectionScale':[0.45],
-                'colorTexture':testColorTexture}))
-            self.node = bs.newNode('terrain', delegate=self, attrs={
-                'collideModel':borModel,
-                'model':model,
-                'colorTexture':testColorTexture,
-                'materials':[bs.getSharedObject('footingMaterial')]})
-            self.vrBottomFill = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':vrBottomFillModel,
-                'lighting':False,
-                'vrOnly':True,
-                'colorTexture':testColorTexture}))
-            self.vrTopFill = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':vrTopFillModel,
-                'vrOnly':True,
-                'lighting':False,
-                'colorTexture':bgTex}))
-            self.terrain = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':model,
-                'colorTexture':testColorTexture,
-                'reflection':'soft',
-                'reflectionScale':[0.3]}))
-            self.trees = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':treesModel,
-                'lighting':False,
-                'reflection':'char',
-                'reflectionScale':[0.1],
-                'colorTexture':treesTexture}))
-            self.bg = bs.NodeActor(bs.newNode('terrain', attrs={
-                'model':bgModel,
-                'color':(0.92,0.91,0.9),
-                'lighting':False,
-                'background':True,
-                'colorTexture':bgTex}))
-            textOffsetV = 0
-            self._ts = 0.86
-            self._language = None
-            self._updateTimer = bs.Timer(2000, bs.Call(self._update, False), repeat=True)
-            self._update(True)
-            bs.gameTimer(55000, bs.Call(self.fireworks))
-            bsUtils.animateArray(bs.getSharedObject("globals"), "tint", 3, {0:(1.1,1.1,1.0), 7500:(1.25, 1.21, 1.075), 30000:(1.25, 1.21, 1.075), \
-                57500:(1.1, 0.86, 0.74), 67500:(1.1, 0.86, 0.74), \
-                90000:(0, 0.27, 0.51), 120000:(0, 0.27, 0.51), 142500:(1.3, 1.06, 1.02), \
-                157500:(1.3, 1.06, 1.02), 180000:(1.3, 1.25, 1.2), 195500:(1.3, 1.25, 1.2), \
-                220000:(1.1,1.1,1.0)})
-            bsInternal._addCleanFrameCallback(bs.WeakCall(self._startPreloads("Menu")))
-            random.seed()
-        elif scene:
-            pumkinsTex = bs.getTexture('pumpkins')
-
-            milosModel = bs.getModel('milos')
-            mil0 = pumkinsTex = bs.getTexture('mil0')
-            mil1 = pumkinsTex = bs.getTexture('mil1')
-            mil2 = pumkinsTex = bs.getTexture('mil2')
-            mil3 = pumkinsTex = bs.getTexture('mil3')
-            mil4 = pumkinsTex = bs.getTexture('mil4')
-            mil5 = pumkinsTex = bs.getTexture('mil5')
-            mil6 = pumkinsTex = bs.getTexture('mil6')
-            mil7 = pumkinsTex = bs.getTexture('mil7')
-            mil8 = pumkinsTex = bs.getTexture('mil8')
-            mil9 = pumkinsTex = bs.getTexture('mil9')
-            mil10 = pumkinsTex = bs.getTexture('mil10')
-            mil11 = pumkinsTex = bs.getTexture('mil11')
-            mil12 = pumkinsTex = bs.getTexture('mil12')
-            mil13 = pumkinsTex = bs.getTexture('mil13')
-            mil14 = pumkinsTex = bs.getTexture('mil14')
-            mil15 = pumkinsTex = bs.getTexture('mil15')
-            mil16 = pumkinsTex = bs.getTexture('mil16')
-            mil17 = pumkinsTex = bs.getTexture('mil17')
-            
-            bsGlobals.ambientColor = (1, 1, 1)
-            bsGlobals.vignetteOuter = (0.9, 0.9, 0.9)
-            bsGlobals.vignetteInner = (0.99, 0.99, 0.99)
-            bsGlobals.cameraMode = 'follow'
-            tint = (0.6, 0.6, 0.7)
-            self.color = (0.1, 0.1, 0.1)
-
-            def Slide0():
-                self.slide0 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil0})
-
-            def Slide0off():
-                if self.slide0.exists():
-                    self.slide0.delete()
-
-            def Slide1():
-                self.slide1 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil1})
-
-            def Slide1off():
-                if self.slide1.exists():
-                    self.slide1.delete()
-
-            def Slide2():
-                self.slide2 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil2})
-
-            def Slide2off():
-                if self.slide2.exists():
-                    self.slide2.delete()
-
-            def Slide3():
-                self.slide3 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil3})
-
-            def Slide3off():
-                if self.slide3.exists():
-                    self.slide3.delete()
-
-            def Slide4():
-                self.slide4 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil4})
-
-            def Slide4off():
-                if self.slide4.exists():
-                    self.slide4.delete()
-
-            def Slide5():
-                self.slide5 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil5})
-
-            def Slide5off():
-                if self.slide5.exists():
-                    self.slide5.delete()
-
-            def Slide6():
-                self.slide6 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil6})
-
-            def Slide6off():
-                if self.slide6.exists():
-                    self.slide6.delete()
-
-            def Slide7():
-                self.slide7 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil7})
-
-            def Slide7off():
-                if self.slide7.exists():
-                    self.slide7.delete()
-
-            def Slide8():
-                self.slide8 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil8})
-
-            def Slide8off():
-                if self.slide8.exists():
-                    self.slide8.delete()
-
-            def Slide9():
-                self.slide9 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil9})
-
-            def Slide9off():
-                if self.slide9.exists():
-                    self.slide9.delete()
-
-            def Slide10():
-                self.slide10 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil10})
-
-            def Slide10off():
-                if self.slide10.exists():
-                    self.slide10.delete()
-
-            def Slide11():
-                self.slide11 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil11})
-
-            def Slide11off():
-                if self.slide11.exists():
-                    self.slide11.delete()
-
-            def Slide12():
-                self.slide12 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil12})
-
-            def Slide12off():
-                if self.slide12.exists():
-                    self.slide12.delete()
-
-            def Slide13():
-                self.slide13 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil13})
-
-            def Slide13off():
-                if self.slide13.exists():
-                    self.slide13.delete()
-
-            def Slide14():
-                self.slide14 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil14})
-
-            def Slide14off():
-                if self.slide14.exists():
-                    self.slide14.delete()
-
-            def Slide15():
-                self.slide15 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil15})
-
-            def Slide15off():
-                if self.slide15.exists():
-                    self.slide15.delete()
-
-            def Slide16():
-                self.slide16 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil16})
-
-            def Slide16off():
-                if self.slide16.exists():
-                    self.slide16.delete()
-
-            def Slide17():
-                self.slide17 = bs.newNode('terrain', delegate=self, attrs={
-                    'model': milosModel,
-                    'colorTexture': mil17})
-
-            def Slide17off():
-                if self.slide17.exists():
-                    self.slide17.delete()
-
-            def mover():
-                Slide0()
-                bs.gameTimer(100, bs.Call(Slide0off))
-                bs.gameTimer(100, bs.Call(Slide1))
-                bs.gameTimer(200, bs.Call(Slide1off))
-                bs.gameTimer(200, bs.Call(Slide2))
-                bs.gameTimer(300, bs.Call(Slide2off))
-                bs.gameTimer(300, bs.Call(Slide3))
-                bs.gameTimer(400, bs.Call(Slide3off))
-                bs.gameTimer(400, bs.Call(Slide4))
-                bs.gameTimer(500, bs.Call(Slide4off))
-                bs.gameTimer(500, bs.Call(Slide5))
-                bs.gameTimer(600, bs.Call(Slide5off))
-                bs.gameTimer(600, bs.Call(Slide6))
-                bs.gameTimer(700, bs.Call(Slide6off))
-                bs.gameTimer(700, bs.Call(Slide7))
-                bs.gameTimer(800, bs.Call(Slide7off))
-                bs.gameTimer(800, bs.Call(Slide8))
-                bs.gameTimer(900, bs.Call(Slide8off))
-                bs.gameTimer(900, bs.Call(Slide9))
-                bs.gameTimer(1000, bs.Call(Slide9off))
-                bs.gameTimer(1000, bs.Call(Slide10))
-                bs.gameTimer(1100, bs.Call(Slide10off))
-                bs.gameTimer(1100, bs.Call(Slide11))
-                bs.gameTimer(1200, bs.Call(Slide11off))
-                bs.gameTimer(1200, bs.Call(Slide12))
-                bs.gameTimer(1300, bs.Call(Slide12off))
-                bs.gameTimer(1300, bs.Call(Slide13))
-                bs.gameTimer(1400, bs.Call(Slide13off))
-                bs.gameTimer(1400, bs.Call(Slide14))
-                bs.gameTimer(1500, bs.Call(Slide14off))
-                bs.gameTimer(1500, bs.Call(Slide15))
-                bs.gameTimer(1600, bs.Call(Slide15off))
-                bs.gameTimer(1600, bs.Call(Slide16))
-                bs.gameTimer(1700, bs.Call(Slide16off))
-                bs.gameTimer(1700, bs.Call(Slide17))
-                bs.gameTimer(1800, bs.Call(Slide17off))
-
-            bs.gameTimer(1800, bs.Call(mover), repeat=True)
-            bsInternal._addCleanFrameCallback(bs.WeakCall(self._startPreloads("seny_seny")))
-
+        self.bottom = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':bottomModel,
+            'lighting':False,
+            'reflection':'soft',
+            'reflectionScale':[0.45],
+            'colorTexture':testColorTexture}))
+        self.node = bs.newNode('terrain', delegate=self, attrs={
+            'collideModel':borModel,
+            'model':model,
+            'colorTexture':testColorTexture,
+            'materials':[bs.getSharedObject('footingMaterial')]})
+        self.vrBottomFill = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':vrBottomFillModel,
+            'lighting':False,
+            'vrOnly':True,
+            'colorTexture':testColorTexture}))
+        self.vrTopFill = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':vrTopFillModel,
+            'vrOnly':True,
+            'lighting':False,
+            'colorTexture':bgTex}))
+        self.terrain = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':model,
+            'colorTexture':testColorTexture,
+            'reflection':'soft',
+            'reflectionScale':[0.3]}))
+        self.trees = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':treesModel,
+            'lighting':False,
+            'reflection':'char',
+            'reflectionScale':[0.1],
+            'colorTexture':treesTexture}))
+        self.bg = bs.NodeActor(bs.newNode('terrain', attrs={
+            'model':bgModel,
+            'color':(0.92,0.91,0.9),
+            'lighting':False,
+            'background':True,
+            'colorTexture':bgTex}))
+        textOffsetV = 0
+        self._ts = 0.86
+        self._language = None
+        self._updateTimer = bs.Timer(2000, bs.Call(self._update, False), repeat=True)
+        self._update(True)
+        bs.gameTimer(55000, bs.Call(self.fireworks))
+        bsUtils.animateArray(bs.getSharedObject("globals"), "tint", 3, {0:(1.1,1.1,1.0), 7500:(1.25, 1.21, 1.075), 30000:(1.25, 1.21, 1.075), \
+            57500:(1.1, 0.86, 0.74), 67500:(1.1, 0.86, 0.74), \
+            90000:(0, 0.27, 0.51), 120000:(0, 0.27, 0.51), 142500:(1.3, 1.06, 1.02), \
+            157500:(1.3, 1.06, 1.02), 180000:(1.3, 1.25, 1.2), 195500:(1.3, 1.25, 1.2), \
+            220000:(1.1,1.1,1.0)})
+        bsInternal._addCleanFrameCallback(bs.WeakCall(self._startPreloads))
+        random.seed()
 
         class News(object):
             
@@ -742,13 +503,13 @@ class MainMenuActivity(bs.Activity):
     def _getCustomLogoTexName(self):
         return None
         
-    def _startPreloads(self, music):
+    def _startPreloads(self):
         # FIXME - the func that calls us back doesn't save/restore state
         # or check for a dead activity so we have to do that ourself..
         if self.isFinalized(): return
         with bs.Context(self): _preload1()
 
-        bs.gameTimer(500,lambda: bs.playMusic(music))
+        bs.gameTimer(500,lambda: bs.playMusic('Menu'))
 
     # pop the logo and menu in
     def _makeLogo(self, x, y, scale, delay, customTexture=None, jitterScale=1.0,
