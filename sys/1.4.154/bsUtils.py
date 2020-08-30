@@ -381,7 +381,7 @@ def showUserScripts():
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
         textures = [
-        "puckColor.dds"
+        "puckColor.ktx"
         ]
         try:
             usd = env['userScriptsDirectory']
