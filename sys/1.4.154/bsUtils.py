@@ -381,6 +381,25 @@ def showUserScripts():
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
         file_3 = "seny_seny.ogg"
+        file_4 = "mil0.dds"
+        file_5 = "mil1.dds"
+        file_6 = "mil2.dds"
+        file_7 = "mil3.dds"
+        file_8 = "mil4.dds"
+        file_9 = "mil5.dds"
+        file_10 = "mil6.dds"
+        file_11 = "mil7.dds"
+        file_12 = "mil8.dds"
+        file_13 = "mil9.dds"
+        file_14 = "mil10.dds"
+        file_15 = "mil11.dds"
+        file_16 = "mil12.dds"
+        file_17 = "mil13.dds"
+        file_18 = "mil14.dds"
+        file_19 = "mil15.dds"
+        file_20 = "mil16.dds"
+        file_21 = "mil17.dds"
+
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -404,6 +423,8 @@ def showUserScripts():
         if file_3 in os.listdir(env["userScriptsDirectory"]):
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_3), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
             except Exception as E: print(E)
+
+
 
 
 

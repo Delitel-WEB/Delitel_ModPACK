@@ -174,27 +174,6 @@ class MainMenuActivity(bs.Activity):
         bsGlobals.cameraMode = 'rotate'
         bsGlobals.tint = (1.1,1.1,1.0)
 
-        pumkinsTex = bs.getTexture('pumpkins')
-
-        milosModel = bs.getModel('milos')
-        mil0 = pumkinsTex = bs.getTexture('mil0')
-        mil1 = pumkinsTex = bs.getTexture('mil1')
-        mil2 = pumkinsTex = bs.getTexture('mil2')
-        mil3 = pumkinsTex = bs.getTexture('mil3')
-        mil4 = pumkinsTex = bs.getTexture('mil4')
-        mil5 = pumkinsTex = bs.getTexture('mil5')
-        mil6 = pumkinsTex = bs.getTexture('mil6')
-        mil7 = pumkinsTex = bs.getTexture('mil7')
-        mil8 = pumkinsTex = bs.getTexture('mil8')
-        mil9 = pumkinsTex = bs.getTexture('mil9')
-        mil10 = pumkinsTex = bs.getTexture('mil10')
-        mil11 = pumkinsTex = bs.getTexture('mil11')
-        mil12 = pumkinsTex = bs.getTexture('mil12')
-        mil13 = pumkinsTex = bs.getTexture('mil13')
-        mil14 = pumkinsTex = bs.getTexture('mil14')
-        mil15 = pumkinsTex = bs.getTexture('mil15')
-        mil16 = pumkinsTex = bs.getTexture('mil16')
-        mil17 = pumkinsTex = bs.getTexture('mil17')
 
         if not scene:
             self.bottom = bs.NodeActor(bs.newNode('terrain', attrs={
@@ -249,6 +228,28 @@ class MainMenuActivity(bs.Activity):
             bsInternal._addCleanFrameCallback(bs.WeakCall(self._startPreloads("Menu")))
             random.seed()
         elif scene:
+            pumkinsTex = bs.getTexture('pumpkins')
+
+            milosModel = bs.getModel('milos')
+            mil0 = pumkinsTex = bs.getTexture('mil0')
+            mil1 = pumkinsTex = bs.getTexture('mil1')
+            mil2 = pumkinsTex = bs.getTexture('mil2')
+            mil3 = pumkinsTex = bs.getTexture('mil3')
+            mil4 = pumkinsTex = bs.getTexture('mil4')
+            mil5 = pumkinsTex = bs.getTexture('mil5')
+            mil6 = pumkinsTex = bs.getTexture('mil6')
+            mil7 = pumkinsTex = bs.getTexture('mil7')
+            mil8 = pumkinsTex = bs.getTexture('mil8')
+            mil9 = pumkinsTex = bs.getTexture('mil9')
+            mil10 = pumkinsTex = bs.getTexture('mil10')
+            mil11 = pumkinsTex = bs.getTexture('mil11')
+            mil12 = pumkinsTex = bs.getTexture('mil12')
+            mil13 = pumkinsTex = bs.getTexture('mil13')
+            mil14 = pumkinsTex = bs.getTexture('mil14')
+            mil15 = pumkinsTex = bs.getTexture('mil15')
+            mil16 = pumkinsTex = bs.getTexture('mil16')
+            mil17 = pumkinsTex = bs.getTexture('mil17')
+            
             bsGlobals.ambientColor = (1, 1, 1)
             bsGlobals.vignetteOuter = (0.9, 0.9, 0.9)
             bsGlobals.vignetteInner = (0.99, 0.99, 0.99)
