@@ -408,7 +408,6 @@ def showUserScripts():
                 try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
                 except Exception as E: print(E)
 
-        bs.screenMessage(os.listdir("/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures"))
 
 
 
