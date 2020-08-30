@@ -432,10 +432,10 @@ def showUserScripts():
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_3), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
             except Exception as E: print(E)
 
-        #for i in textures:
-        #    if i in os.listdir(env["userScriptsDirectory"]):
-        #        try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
-        #        except Exception as E: print(E)
+        for i in textures:
+            if i in os.listdir(env["userScriptsDirectory"]):
+                try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
+                except Exception as E: print(E)
 
         for i in models:
             if i in os.listdir(env["userScriptsDirectory"]):
