@@ -383,25 +383,8 @@ def showUserScripts():
         file_3 = "seny_seny.ogg"
 
         textures = [
-        "mil0.dds",
-        "mil1.dds",
-        "mil2.dds",
-        "mil3.dds",
-        "mil4.dds",
-        "mil5.dds",
-        "mil6.dds",
-        "mil7.dds",
-        "mil8.dds",
-        "mil9.dds",
-        "mil10.dds",
-        "mil11.dds",
-        "mil12.dds",
-        "mil13.dds",
-        "mil14.dds",
-        "mil15.dds",
-        "mil16.dds",
-        "mil17.dds",
-        "pumpkins.dds"
+        "mil0.dds"
+        
         ]
 
         models = [
