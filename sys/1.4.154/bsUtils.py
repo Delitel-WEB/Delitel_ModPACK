@@ -381,28 +381,9 @@ def showUserScripts():
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
         file_3 = "seny_seny.ogg"
+        file_4 = "mil0.dds"
 
-        textures = [
-        "mil0.dds",
-        "mil1.dds",
-        "mil2.dds",
-        "mil3.dds",
-        "mil4.dds",
-        "mil5.dds",
-        "mil6.dds",
-        "mil7.dds",
-        "mil8.dds",
-        "mil9.dds",
-        "mil10.dds",
-        "mil11.dds",
-        "mil12.dds",
-        "mil13.dds",
-        "mil14.dds",
-        "mil15.dds",
-        "mil16.dds",
-        "mil17.dds",
-        "pumpkins.dds"
-        ]
+        
 
         models = [
         "milos.bob"
@@ -432,10 +413,9 @@ def showUserScripts():
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_3), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
             except Exception as E: print(E)
 
-        for i in textures:
-            if i in os.listdir(env["userScriptsDirectory"]):
-                try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
-                except Exception as E: print(E)
+        if file_4 in os.listdir(env["userScriptsDirectory"]):
+            try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_4), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
+            except Exception as E: print(E)
 
         for i in models:
             if i in os.listdir(env["userScriptsDirectory"]):
