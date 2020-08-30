@@ -381,10 +381,6 @@ def showUserScripts():
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
 
-        textures = [
-        "puckColor.ktx"
-        ]
-
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -403,10 +399,6 @@ def showUserScripts():
 
         if file_2 in os.listdir(env["userScriptsDirectory"]):
             try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_2), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-            except Exception as E: print(E)
-
-        for i in textures:
-            try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/textures')
             except Exception as E: print(E)
 
 
