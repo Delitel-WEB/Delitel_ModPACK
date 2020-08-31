@@ -509,7 +509,11 @@ class MainMenuActivity(bs.Activity):
         if self.isFinalized(): return
         with bs.Context(self): _preload1()
 
-        bs.gameTimer(500,lambda: bs.playMusic('Menu'))
+        numb = random.randint(1, 10)
+        if numb in [1, 2, 3, 4, 5]:
+            bs.gameTimer(500,lambda: bs.playMusic('Menu'))
+        else:
+            bs.gameTimer(500,lambda: bs.playMusic('seny_seny'))
 
     # pop the logo and menu in
     def _makeLogo(self, x, y, scale, delay, customTexture=None, jitterScale=1.0,

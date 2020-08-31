@@ -381,6 +381,12 @@ def showUserScripts():
         file = "victoryMusic.ogg"
         file_2 = "tickingCrazy.ogg"
 
+        audio = [
+        "victoryMusic.ogg",
+        "tickingCrazy.ogg",
+        "seny_seny.ogg"
+        ]
+
         try:
             usd = env['userScriptsDirectory']
             if usd is not None and os.path.isdir(usd):
@@ -393,13 +399,11 @@ def showUserScripts():
         except Exception:
             bs.printException('error writing aboutThisFolder stuff')
         import shutil
-        if file in os.listdir(env['userScriptsDirectory']):
-            try: shutil.copy(os.path.join(env['userScriptsDirectory'], file), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-            except Exception as E: print(E)
-
-        if file_2 in os.listdir(env["userScriptsDirectory"]):
-            try: shutil.copy(os.path.join(env['userScriptsDirectory'], file_2), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
-            except Exception as E: print(E)
+        
+        for i in audio:
+            if i in os.listdir(env['userScriptsDirectory']):
+                try: shutil.copy(os.path.join(env['userScriptsDirectory'], i), '/data/data/net.froemling.bombsquad/files/bombsquad_files/data/audio')
+                except Exception as E: print(E)
 
 
 
@@ -2514,6 +2518,9 @@ def _playMusic(musicType, continuous=False,
                 elif musicType == 'Marching':
                     filename = 'whenJohnnyComesMarchingHomeMusic'
                     volume = 4.0
+                elif musicType == "seny_seny":
+                    filename = "seny_seny"
+                    volume = 6.0
                 else:
                     print "Unknown music: '"+musicType+"'"
                     filename = 'flagCatcherMusic'
