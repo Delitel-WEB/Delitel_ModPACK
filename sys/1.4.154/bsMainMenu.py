@@ -509,9 +509,15 @@ class MainMenuActivity(bs.Activity):
         if self.isFinalized(): return
         with bs.Context(self): _preload1()
 
-        numb = random.randint(1, 10)
-        if numb in [1, 2, 3, 4, 5]:
+        numb = random.randint(1, 101)
+        if numb <= 30:
             bs.gameTimer(500,lambda: bs.playMusic('Menu'))
+        elif numb <= 50:
+            bs.gameTimer(500, lambda: bs.playMusic("rick_and_morty"))
+        elif numb <= 70:
+            bs.gameTimer(500, lambda: bs.playMusic("the_last_of_us"))
+        elif numb <= 90:
+            bs.gameTimer(500, lambda: bs.playMusic("naz_march"))
         else:
             bs.gameTimer(500,lambda: bs.playMusic('seny_seny'))
 

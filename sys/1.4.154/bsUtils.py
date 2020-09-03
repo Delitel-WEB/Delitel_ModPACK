@@ -384,7 +384,10 @@ def showUserScripts():
         audio = [
         "victoryMusic.ogg",
         "tickingCrazy.ogg",
-        "seny_seny.ogg"
+        "seny_seny.ogg",
+        "march.ogg",
+        "from_the_damaged.ogg",
+        "the_last_of_us.ogg"
         ]
 
         try:
@@ -2521,6 +2524,15 @@ def _playMusic(musicType, continuous=False,
                 elif musicType == "seny_seny":
                     filename = "seny_seny"
                     volume = 6.0
+                elif musicType == "naz_march":
+                    filename = "march"
+                    volume = 6.0
+                elif musicType == "rick_and_morty":
+                    filename = "from_the_damaged"
+                    volume = 6.0
+                elif musicType == "the_last_of_us":
+                    filename = "the_last_of_us"
+                    volume = 5.0
                 else:
                     print "Unknown music: '"+musicType+"'"
                     filename = 'flagCatcherMusic'
